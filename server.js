@@ -10,19 +10,13 @@ import { errorMiddleware } from "./error.js";
 import cors from "cors";
 import { get } from "mongoose";
 
+const app = express();
+// const router = express.Router()
+
 // creating dotEnv file for securing our Links
 config({
     path:"./DataBse/config.env"
 });
-
-const app = express();
-const router = express.Router();
-
-// addding databse
-ConntectDb()
-
-console.log(process.env.PORT)
-
 //using middleware
 app.use(express.json());
 app.use(cookieParser());
@@ -33,6 +27,15 @@ app.use(
     credentials: true,
   })
 );
+
+
+// addding databse
+ConntectDb()
+
+console.log(process.env.PORT)
+
+
+
 
 
 
