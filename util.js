@@ -6,8 +6,8 @@ export const SentCookies = (user,res,message, statusCode) =>{
     res.status(statusCode).cookie("token", token,{
       httpOnly:true,
       maxAge: 15*60*1000,
-      sameSite:process.env.NODE_ENV===DEVLOPMENT ? "lax":"none",
-      secure:process.env.NODE_ENV===DEVLOPMENT ? false:true
+      sameSite:process.env.NODE_ENV===Devlopment ? "lax":"none",
+      secure:process.env.NODE_ENV===Devlopment ? false:true
   
     }).json({
       Sucess: true,

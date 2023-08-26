@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./error.js";
 // import { newTask } from "./routeTask.js";
 import cors from "cors";
-import { get } from "mongoose";
+
 
 const app = express();
 // const router = express.Router()
@@ -20,13 +20,10 @@ config({
 //using middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({
+app.use(cors({
     origin: [process.env.FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
-
-// 
   })
 );
 
@@ -44,6 +41,7 @@ console.log(process.env.PORT)
 // using routes
 app.use("/api/v1/users",routerData)
 app.use("/api/v1/task", taskRouter)
+
 app.get("/",(req,res)=>{
   res.send("Nice Working")
 })

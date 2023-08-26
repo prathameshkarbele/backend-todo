@@ -72,8 +72,8 @@ export const getMyProfile = (req, res) => {
 
 export const logout = (req,res) =>{
   res.status(200).cookie("token","",{expires:new Date(Date.now()),
-  sameSite:process.env.NODE_ENV==="DEVLOPMENT" ? "lax":"none",
-  secure:process.env.NODE_ENV==="DEVLOPMENT" ? false:true
+  sameSite:process.env.NODE_ENV==="Devlopment" ? "lax":"none",
+  secure:process.env.NODE_ENV==="Devlopment" ? false:true
   }).json({
     Sucess:true,
     user:req.user 

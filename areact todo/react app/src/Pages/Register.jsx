@@ -15,15 +15,15 @@ const Register = () => {
 
     try {
       const { data } = await axios.post(
-         `${server}/users/new`,
+        `${server}/users/new`,
         {
-          Name:name,
-          Email:email,
-          Password:password,
+          Name: name,
+          Email: email,
+          Password: password,
         },
         {
           headers: {
-            "Content-Type":"application/json",
+            "Content-Type": "application/json",
           },
           withCredentials: true,
         }
@@ -31,7 +31,7 @@ const Register = () => {
       toast.success(data.message);
     } catch (error) {
       toast.error("Some error");
-      console.log(error)
+      console.log(error);
     }
   };
   return (
