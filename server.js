@@ -25,18 +25,20 @@ console.log(process.env.PORT)
 
 //using middleware
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+
 
 // using routes
 app.use("/api/v1/users",routerData)
 app.use("/api/v1/task", taskRouter)
-app.use(cors({
-  origin:[process.env.FRONTEND_URL],
-  methods:["GET","POST","PUT","DELETE"],
-  credentials:true
-}))
-
-
 app.get("/",(req,res)=>{
   res.send("Nice Working")
 })
