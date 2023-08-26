@@ -15,15 +15,15 @@ const Register = () => {
 
     try {
       const { data } = await axios.post(
-        `${server}/users/new`,
+         `${server}/users/new`,
         {
-          name,
-          email,
-          password,
+          Name:name,
+          Email:email,
+          Password:password,
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type":"application/json",
           },
           withCredentials: true,
         }
